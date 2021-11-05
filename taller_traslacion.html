@@ -1,0 +1,53 @@
+<!--Taller_traslacion.html: 
+    - Un polígono, correspondiente a la letra inicial de su primer apellido,  
+    - Color de relleno amarillo (referir como 'yellow')
+    - El borde de dicha letra debe ser de color rojo.
+    - Debe realizarse una traslación definida por el vector (250, 350)
+    - El documento debe presentar dos letras:
+        LETRA 1:
+        * Posición inicial: esq. superior izquierda, de coordenadas (40,40)
+        * Posición final: de coordenadas definidas por el vector de traslación-->
+
+<canvas id='canvas' width=600 height=600>
+    <script>
+
+        //Función que traza la letra como si fuera un polígono.
+        function polygon(a, colorBorde, colorRelleno) {
+            ctx.beginPath()
+            ctx.strokeStyle = colorBorde
+            ctx.fillStyle = colorRelleno
+            ctx.moveTo(a[0], a[1])
+            for (var i = 2; i < a.length; i += 2)
+                ctx.lineTo(a[i], a[i + 1]);
+            ctx.closePath()
+            ctx.stroke()
+            ctx.fill()
+        }
+
+        //Función que permite trasladar la figura a partir de su posición inicial.
+        function sumaTrasl(v1, v2) {
+            var s = []; //variable para guardar el resultado
+
+            for (var i = 0; i < v1.length; i++) {
+                s[i] = v1[i] + v2[i % 2 == 0 ? 0 : 1];
+            }
+            return s;
+        }
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d');
+
+        //Coordenadas que dibujan la letra J a partir de la posición solicitada. 
+        //ACLARACIÓN: Debido a la forma de la letra, no parece que empiece en (40,40), pero se puede verficar en el programa Paint.
+        var coord = [70,40, 80,40, 80,100, 75,100, 75,105, 70,105, 70,110, 50,110, 50,105, 45,105, 45,100, 40,100, 40,90, 50,90, 50,100, 55,100,55,105, 65,105, 65,100, 70,100];
+
+        //Vector de traslación con los valores solicitados.
+        var vec_tras = [250,350];
+        
+        //Se definen las cordenadas de la letra trasladada
+        var coord_tras = sumaTrasl(coord, vec_tras)
+
+        //Se dibuja primero la letra en su posición original (l-44), luego se dibuja la letra ya trasladada (l-45).
+        polygon(coord, 'red', 'yellow');
+        polygon(coord_tras, 'red', 'yellow');
+
+    </script>

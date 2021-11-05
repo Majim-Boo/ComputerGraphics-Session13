@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head><!-- Aquí van los metadatos-->
+    <meta charset="utf-8"/> <!-- Etiqueta que permite el uso de español-->
+    <title>Cajas policromaticas</title> <!-- Etiqueta que le da un título a la página web-->      
+    
+  </head>
+
+  <body><!-- Etiqueta que contiene el cuerpo de la página, es decir, lo que ve el usuario-->
+    <div class="contenedor"> 
+        <!--Se le coloca class para identificarla y darle propiedades de CSS-->
+        <!--ya que se identifica como una clase, se le puede meter código desde estilos.css en su propia clase-->
+        
+        <div class="cajaRoja">    
+        </div>
+        <div class="cajaVerde">
+        </div>
+        <div class="cajaAzul">
+        </div>
+    </div>
+
+    <div class="boton">
+        <input type="number" id="numFilas" value=filas/>
+        <input type="number" id="numColumnas" value=columnas/>
+        <button onclick='main()'>Ejecutar</button>
+    </div>
+    
+
+    <style>/*Para CSS*/
+      body {background-color: #000000;}
+            
+      .cajaRoja {/*Función que controla la caja roja*/
+          background: linear-gradient(to bottom, #000000, #ff0000);
+          width: 150px;
+          height: 400px;
+          float: left;/*Propiedad que permite apilar las cajas una al lado de la otra*/
+      }
+
+      .cajaVerde {/*Función que controla la caja verde*/
+          background: linear-gradient(to bottom, #000000, #00ff00);
+          width: 150px;
+          height: 400px;
+          float: left;
+      }
+
+      .cajaAzul {/*Función que controla la caja azul*/
+          background: linear-gradient(to bottom, #000000, #0000ff);
+          width: 150px;
+          height: 400px;
+          float: left;
+      }
+
+      .contenedor{ /*Es donde anidamos las cajas RGB*/
+          width: 450px;
+          height: 400px;
+          /*border: black 5px dashed;*//*Dashed se refiere a que el estilo del borde es punteado*/
+          margin: 50px auto; /*Es la distancia exterior, del borde hacia afuera*/
+      }
+
+      .boton{ /*Función que personaliza el botón*/
+          width: 120px;
+          height: 25px;
+          background:transparent;
+          border: transparent 5px;
+          margin: 0px auto;
+      }
+    </style>
+
+    function main() {
+      <script>//Para Javascript </script>
+     
+      <div id="contenedorTabla">
+        <!--Este contenedor va a contener la tabla generada-->
+      </div>
+    }
+  </body>
+</html>
