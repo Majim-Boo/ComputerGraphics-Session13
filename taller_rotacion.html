@@ -1,0 +1,53 @@
+<!--Taller_rotacion.html: 
+    Lo mismo que el archivo anterior pero:
+    - La letra inicial de su segundo apellido o...
+      tome la siguiente letra del segundo apellido en caso de que se repita con la inicial del primer apellido). 
+    - Realizar una rotación de +75° (sentido contrario a las manecillas de reloj) sobre el punto central del polígono. 
+    - Al final, deben quedar cruzados los dos polígonos, el inicial y el rotado (pero distinguiéndose en uno del otro, ya que hay un ángulo de giro de 75°).
+-->
+
+<!--REFERENCIA: Canvas 03 Rotación - brankoh 
+    ENLACE: https://www.youtube.com/watch?v=Of5BqqKepCU-->
+
+<canvas id='canvas' width=600 height=600>
+    <script>
+
+        //FUNCIONES AUXILIARES-------------------------
+
+        //Función que traza la letra
+        function polygon(a, colorBorde, colorRelleno) {
+            ctx.beginPath()
+            ctx.strokeStyle = colorBorde
+            ctx.fillStyle = colorRelleno
+            ctx.moveTo(a[0], a[1])
+            for (var i = 2; i < a.length; i += 2)
+                ctx.lineTo(a[i], a[i + 1]);
+            ctx.closePath()
+            ctx.stroke()
+            ctx.fill()
+        }
+
+        //VARIABLES---------------------
+
+        //Referenciar el elemento <canvas> y definir contexto y dimensiones.
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        //Coordenadas que dibujan la letra I a partir de la posición solicitada. 
+        var coord = [40,40, 87,40, 87,55, 71,54, 72,124, 86,124, 86,138, 40,138, 40,124, 55,124, 55,54, 40,54];
+
+        //IMPRESIÓN EN PANTALLA-------------------
+
+        //Dibujar la letra I
+        polygon(coord, 'red', 'yellow');
+
+        //Mover el lienzo al centro de la letra principal
+        ctx.translate(-30,30);
+
+        // Rotar el lienzo
+        ctx.rotate(75);
+
+        //Dibujo de la segunda letra (rotado)
+        polygon(coord, 'yellow', 'red');
+
+    </script>
